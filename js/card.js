@@ -3,11 +3,11 @@
  */
 var form = document.querySelector('form[name="_data_card"]');
 var data_form = function (form) {
-    var number_card = parseInt(form.card_num.value);
+    var number_card = form.card_num.value;
     var full_name = form.names.value;
     var expiry = form.num_expiry.value;
     var cvc = form.cvc_name.value;
-    // return(number_card, full_name, expiry, cvc);
+    return (number_card, full_name, expiry, cvc);
 };
 var view = function (props) {
     var card_view = document.querySelector('card');

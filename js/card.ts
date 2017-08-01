@@ -3,13 +3,13 @@
  */
 let form = document.querySelector('form[name="_data_card"]');
 
-const data_form = form=>{
-    let number_card = parseInt(form.card_num.value);
+const data_form = form =>{
+    let number_card = form.card_num.value;
     let full_name = form.names.value;
     let expiry = form.num_expiry.value;
     let cvc = form.cvc_name.value;
 
-    // return(number_card, full_name, expiry, cvc);
+    return(number_card, full_name, expiry, cvc);
 };
 
 const view = props =>{
@@ -32,7 +32,7 @@ const check = e =>{
     }
 };
 const output = e =>{
-    if(e.target.type!=='checkbox' &&isNaN(e.target.value))return;
+    if(e.target.type!=='checkbox' && isNaN(e.target.value)) return;
     if(e.target.value<0) e.target.value = 0;
     view(data_form(form));
 };
