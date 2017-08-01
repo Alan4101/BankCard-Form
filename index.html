@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Test</title>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--<script src="js/main.js"></script>-->
+    <script src="js/card.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12 card-container">
+                <div class="card-box">
+                    <div class="card-wrapper">
+<!-- card box-->
+                        <div class="card">
+                            <div class="card_type"></div>
+                            <div class="cheep">
+                                <div class="middle_chep"></div>
+                            </div>
+                            <span id="number_card_res">a</span>
+                            <!--1234 4321 4587 7777-->
+                            <div class="name_user_res">errty</div>
+                            <div class="cvc_number_res"></div>
+                            <div class="expiry_res"></div>
+                        </div>
+                    </div>
+<!--form-->
+                    <div class="form_container">
+                        <form id="data_info" name="_data_card" action="">
+                            <label for="cardNumber">Card Number</label>
+                                <input id="cardNumber" type="text" name="card_num">
+                            <!--class="rfild" required placeholder="Card number"  autocomplete="card_name"-->
+                            <label for="FullName">Full Name</label>
+                                <input class="rfild" name="names" id="FullName" type="text" required  placeholder="Full name" autocomplete="name">
+                            <label for="expiry">Expiry</label>
+                                <input class="rfild" id="expiry" name="num_expiry" type="text" required placeholder="MM/YY">
+                            <label for="cvc">CVC</label>
+                                <input class="rfild" name="cvc_name" id="cvc" type="text" required placeholder="CVC" autocomplete="cvc_name">
+                        </form>
+                    </div>
+<!--end form-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+</script>
+</body>
+</html>
