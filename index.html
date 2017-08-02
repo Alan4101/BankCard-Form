@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Test</title>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!--<script src="js/main.js"></script>-->
-    <script src="js/card.js"></script>
+    <script src="js/main.js"></script>
+    <!--<script src="js/card.js"></script>-->
 </head>
 <body>
 
@@ -21,33 +21,38 @@
                 <div class="card-box">
                     <div class="card-wrapper">
 <!-- card box-->
-                        <div class="card">
-                            <div class="card_type"></div>
-                            <div class="cheep">
-                                <div class="middle_chep"></div>
+                        <div class="card flip">
+                            <div class="front">
+                                <div class="card_type"></div>
+                                <div class="cheep">
+                                    <div class="middle_chep"></div>
+                                </div>
+                                <duv id="number_card_res"></duv>
+                                <div class="name_user_res"></div>
+                                <div class="cvc_number_res"></div>
+                                <div class="expiry_res"></div>
                             </div>
-                            <span id="number_card_res"></span>
-                            <!--1234 4321 4587 7777-->
-                            <div class="name_user_res">errty</div>
-                            <div class="cvc_number_res"></div>
-                            <div class="expiry_res"></div>
+                            <div class="back">
+
+                            </div>
                         </div>
                     </div>
-<!--form-->
+<!--form--><button id="rotate_btn"> start</button>
+
                     <div class="form_container">
                         <form id="data_info" name="_data_card" action="">
                             <!--CARD NUMBER-->
                             <label for="cardNumber">Card Number</label>
-                                <input id="cardNumber" type="text" name="card_num" class="rfild" required placeholder="Card number" value="" autocomplete="card_name">
+                                <input id="cardNumber" type="text" name="card_num" class="rfild" required placeholder="Card number" maxlength="19" autocomplete="card_name">
 <!--FULL NAME-->
                             <label for="FullName">Full Name</label>
                                 <input class="rfild" name="names" id="FullName" type="text" required  placeholder="Full name" autocomplete="name">
                             <!--EXPIRY-->
                             <label for="expiry">Expiry</label>
-                                <input class="rfild" id="expiry" name="num_expiry" type="text" required placeholder="MM/YY">
+                                <input class="rfild" id="expiry" name="num_expiry" type="text" required maxlength="5" placeholder="MM/YY">
                             <!--CVC-->
                             <label for="cvc">CVC</label>
-                                <input class="rfild" name="cvc_name" id="cvc" type="text" required placeholder="CVC" autocomplete="cvc_name">
+                                <input class="rfild" name="cvc_name" id="cvc" type="text" required placeholder="CVC" maxlength="4" autocomplete="cvc_name">
                         </form>
                     </div>
 <!--end form-->
@@ -57,15 +62,11 @@
     </div>
 </div>
 <div class="container" id="container">
-    <div id="card" class=" ">
+    <div id="card" class="flip">
         <figure class="back"></figure>
         <figure class="front"></figure>
     </div>
-    <input id="button" type="button" value="start">
+    <!--<button id="rotate_btn"> Start</button>-->
 </div>
-
-<script>
-
-</script>
 </body>
 </html>

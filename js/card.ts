@@ -3,15 +3,14 @@
  */
 let form = document.querySelector('form[name="_data_card"]');
 
-const data_form = form =>{
+const data_form = form => {
     let number_card = form.card_num.value;
     let full_name = form.names.value;
     let expiry = form.num_expiry.value;
     let cvc = form.cvc_name.value;
 
-    return(number_card, full_name, expiry, cvc);
+    return (number_card, full_name, expiry, cvc);
 };
-
 const view = props =>{
     let card_view = document.querySelector('card');
     let res_num_card = card_view.querySelector('number_card_res');
@@ -40,3 +39,4 @@ form.addEventListener('keypress', check);
 form.addEventListener('change', output);
 
 form.addEventListener('input', output);
+
