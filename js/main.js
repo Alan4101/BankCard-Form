@@ -2,56 +2,83 @@
  * Created by devds on 27.07.2017.
  */
 $(document).ready(function () {
-
-    //
     // var inp = document.getElementById("cardNumber");
     // inp.oninput = function(){
     //     var card_num = document.getElementById("cardNumber").value;
     //     document.getElementById("number_card_res").innerHTML =  card_num;
     // };
-    // $('#cardNumber').keyup(function () {
-    //     console.log(1);
-    //     $('#number_card_res').text($('#cardNumber').val());
-    // });
 
    var card_form = {
         number_card : $('#cardNumber'),
         full_name: $('#fullname'),
         expiry: $('#expiry'),
         cvc: $('#cvc'),
+        //result container
         res_num_card: $('#number_card_res'),
+        res_fullName : $('.name_user_res'),
+        res_expiry: $('.expiry_res'),
+        res_cvc : $('.cvc_number_res')
 
     };
-   function input_form(id_with, id_to) {
+/*вивід inputа на картці*/
+
+   function input_form(id_with, id_to, side) {
        id_with.keyup(function () {
            id_to.text(id_with.val());
-           console.log(12);
+           if(side!='front'){
+               $('.container-card-all').removeClass('flip');
+               console.log("good f");
+           }else{
+               $('.container-card-all').addClass('flip');
+               console.log('good b');
+           }
+           // console.log(12);
        });
    }
-   function front_part() {
-       input_form(card_form.cvc,);
-   }
-   function back_part() {
+// передня частина
+    function front_part() {
+        var front = 'front';
+        // if($('.card').hasClass("front")){
+        //
+        // }
+        $('input').each(function (index) {
+            if($('input').hasClass('num')){
+                OnlyDigits(this.value);
+                console.log(index+":"+(this).value);
+            }
+       });
+        // OnlyDigits(card_form);
 
-   }
-   input_form();
-    function check_card(id_with,id_to) {
-        if(typeof(id_with.val())!=='string'){
-            $(id_with).keypress(function (e) {
-                if (e.which < 8 && e.which > 0 && e.which == 46 && (e.which != 48 || e.which !=  57)) {
-                    input_form(id_with,id_to);
-                }
-            });
-        }else {
-            $(id_with).keypress(function (e) {
-                if (e.which != 8 && e.which != 0 && e.which != 46 && (e.which < 48 || e.which > 57)) {
-                    return false;
-                }else {
-                    input_form(id_with, id_to);
-                }
-            });
-        }
+        // SpaceNumber(card_form.number_card);
+
+        input_form(card_form.number_card, card_form.res_num_card, front);
+        input_form(card_form.full_name, card_form.res_fullName, front);
+        input_form(card_form.expiry, card_form.res_expiry, front);
     }
+// задня частина
+    function back_part() {
+        var back= "back";
+        OnlyDigits(card_form.cvc);
+        input_form(card_form.cvc, card_form.res_cvc, back);
+    }
+    front_part();
+    back_part();
+//
+    function SpaceNumber(card_code) {
+        // card_code.value.replace(/[^\d]/g, '').substr(0,16);
+        card_code.value!= ' '?card_code.match(/.{1,4}/g).join(' '): '';
+
+        // this.value = card_code;
+    }
+// тільци цифри
+    function OnlyDigits(input_name) {
+        input_name.bind("input change", function () {
+            if(this.value.match(/[^0-9]/g)){
+                this.value = this.value.replace(/[^0-9]/g, '');
+            }
+        });
+    }
+
 
 
 
