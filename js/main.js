@@ -37,38 +37,24 @@ $(document).ready(function () {
    }
 // передня частина
     function front_part() {
-        var front = 'front';
-        // if($('.card').hasClass("front")){
-        //
-        // }
-        $('input').each(function (index) {
+        var front = 'front',
+         back = "back";
+        $('#data_info input').each(function () {
             if($('input').hasClass('num')){
-                OnlyDigits(this.value);
-                console.log(index+":"+(this).value);
+                OnlyDigits($('input'));
+                input_form(card_form.number_card, card_form.res_num_card, front);
+                input_form(card_form.expiry, card_form.res_expiry, front);
+                input_form(card_form.cvc, card_form.res_cvc, back);
             }
-       });
-        // OnlyDigits(card_form);
-
-        // SpaceNumber(card_form.number_card);
-
-        input_form(card_form.number_card, card_form.res_num_card, front);
-        input_form(card_form.full_name, card_form.res_fullName, front);
-        input_form(card_form.expiry, card_form.res_expiry, front);
-    }
-// задня частина
-    function back_part() {
-        var back= "back";
-        OnlyDigits(card_form.cvc);
-        input_form(card_form.cvc, card_form.res_cvc, back);
+            input_form(card_form.full_name, card_form.res_fullName, front);
+        });
     }
     front_part();
-    back_part();
 //
     function SpaceNumber(card_code) {
-        // card_code.value.replace(/[^\d]/g, '').substr(0,16);
-        card_code.value!= ' '?card_code.match(/.{1,4}/g).join(' '): '';
-
-        // this.value = card_code;
+        var temp = card_code.value.replace(/[^\d]/g, '').substr(0,16);
+        temp = card_code.value!= ' '?card_code.match(/.{1,4}/g).join(' '): '';
+        card_code.value = temp;
     }
 // тільци цифри
     function OnlyDigits(input_name) {
