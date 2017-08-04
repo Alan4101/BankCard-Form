@@ -13,12 +13,12 @@ $(document).ready(function () {
         full_name: $('#fullname'),
         expiry: $('#expiry'),
         cvc: $('#cvc'),
-        //result container
+
+//result container
         res_num_card: $('#number_card_res'),
         res_fullName : $('.name_user_res'),
         res_expiry: $('.expiry_res'),
         res_cvc : $('.cvc_number_res')
-
     };
 /*вивід inputа на картці*/
 
@@ -32,7 +32,6 @@ $(document).ready(function () {
                $('.container-card-all').addClass('flip');
                console.log('good b');
            }
-           // console.log(12);
        });
    }
 // передня частина
@@ -52,7 +51,7 @@ $(document).ready(function () {
     front_part();
 //
     function SpaceNumber(card_code) {
-        var temp = card_code.value.replace(/[^\d]/g, '').substr(0,16);
+        var temp = card_code.value.replace(/[^\d]/g, '').substr(0,19);
         temp = card_code.value!= ' '?card_code.match(/.{1,4}/g).join(' '): '';
         card_code.value = temp;
     }
