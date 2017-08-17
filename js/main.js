@@ -35,18 +35,25 @@ $(document).ready(function () {
        });
        // console.log(111);
    }
+    function number_format( str ){
+        return str.replace(/(\s)+/g, '').replace(/(\d{1,3})(?=(?:\d{3})+$)/g, '$1 ');
+    }
+
 // передня частина
     function front_part() {
         var front = 'front',
          back = "back";
         $('#data_info input').each(function () {
             if($('input').hasClass('num')){
+
                 OnlyDigits($('input'));
+
                 input_form(card_form.number_card, card_form.res_num_card, front);
                 input_form(card_form.expiry, card_form.res_expiry, front);
                 input_form(card_form.cvc, card_form.res_cvc, back);
             }
             input_form(card_form.full_name, card_form.res_fullName, front);
+
         });
     }
     front_part();
@@ -64,8 +71,13 @@ $(document).ready(function () {
             }
         });
     };
-
-
+/*фінкція для вводу по 4 числа*/
+    function number_format( str ){
+        return str.replace(/(\s)+/g, '').replace(/(\d{1,4})(?=(?:\d{4})+$)/g, '$1 ');
+    }
+    $('input.integer').keyup(function(event){
+        $(this).val( number_format ( $(this).val() ) );
+    });
 });
 $(window).on('load', function () {
     var $preloader = $('#page-preloader'),
