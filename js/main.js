@@ -8,7 +8,7 @@ $(document).ready(function () {
     //     document.getElementById("number_card_res").innerHTML =  card_num;
     // };
 
-   var card_form = {
+    var card_form = {
         number_card : $('#cardNumber'),
         full_name: $('#fullname'),
         expiry: $('#expiry'),
@@ -33,6 +33,7 @@ $(document).ready(function () {
                console.log('good b');
            }
        });
+       // console.log(111);
    }
 // передня частина
     function front_part() {
@@ -62,16 +63,14 @@ $(document).ready(function () {
                 this.value = this.value.replace(/[^0-9]/g, '');
             }
         });
-    }
+    };
 
 
-
-
-
-
-
-
-
-
-
+});
+$(window).on('load', function () {
+    var $preloader = $('#page-preloader'),
+        $spinner   = $preloader.find('.spinner');
+    $spinner.fadeOut();
+    $preloader.delay(450).fadeOut('slow');
+    console.log(5);
 });
